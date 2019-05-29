@@ -1,0 +1,29 @@
+@import "styles/reset";
+@import "styles/var";
+@import "styles/mixin";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+html {
+  font-size: $html-font-size-px;
+  @include responsive-for(tablet) {
+    font-size: $html-font-size * $html-font-factor + px;
+  }
+  @include responsive-for(handhelds) {
+    font-size: $html-font-size*$html-font-factor*$html-font-factor + px;
+  }
+  font-family: $html-font-stack;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  border: 5px solid green;
+  font-size: rem(16);
+  @include responsive-for(tablet) {
+    border-color: orange;
+  }
+
+  @include responsive-for(handhelds) {
+    border-color: red;
+  }
+}
