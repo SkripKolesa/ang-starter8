@@ -1,22 +1,40 @@
 .loading-screen {
-  $bg-color: rgba(0, 0, 0, .5);
+  $bg-color: rgba(0, 0, 0, .8);
+  $bg-shadow: rgba(0, 0, 0, .4);
   width: 100%;
   height: 100%;
   position: fixed;
   top: 0;
   left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 100vh;
+  min-width: 100vw;
   background: $bg-color;
-  box-shadow: inset 20px 10px 25px $bg-color,
-  inset -20px -10px 25px $bg-color;
+  box-shadow: inset 10vw 10vh 15vh $bg-shadow,
+  inset -10vw -10vh 15vh $bg-shadow;
 }
 
 .loading-indicator {
-  $size: calc(1vw + 1vh);
+  color: white;
+  $size: calc(2vh + 2vw);
+  font-size: $size;
   width: $size;
-  height: $size;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%);
-  background: blue;
+
+  &::after {
+    content: "\2026";
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: bottom;
+    animation: dots .5s infinite alternate;
+    width: 0;
+  }
+
+  @keyframes dots {
+    to {
+      width: $size;
+    }
+  }
 }
